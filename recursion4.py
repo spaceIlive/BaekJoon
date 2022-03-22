@@ -15,7 +15,7 @@ def hanoi_position(n,start,mid,end):
         print('%d %d' %(start, end))
         hanoi_position(n-1,mid,start,end)
         
-        
+                                                #제일 인상 깊었던 문제 가장 오래걸리고 생각도 많이 했던것 같다.
 
             
 n=int(sys.stdin.readline())
