@@ -1,26 +1,31 @@
-Test_case= int(input())
-a=[]
-b=[]
-for i in range(15):
-    inner=[]
-    if i == 0:
-        for j in range(14):
-            inner.append(j+1)
-        a.append(inner)
-          
-    else :
-        for j in range(0,14):
-            if j ==0:
-                inner.append(1)
-            else:    
-                inner.append(inner[j-1]+a[i-1][j])
-        a.append(inner)
-for i in range(Test_case):
-    inner2=[]
-    for j in range(2):
-        inner2.append(int(input()))
-    b.append(inner2)    
-for i in range(Test_case):
-    print(a[(b[i][0])][(b[i][1])-1])
+import sys
+import math
+def prime_list(n):
+    sieve= [True]*n
 
-# 나는 한번에 아래꺼랑 왼쪽거 더하려 했는데 차라리 밑에꺼를 복사한 이우에 왼쪽꺼를 더하는것도 나쁘지는 않은듯
+    m=int(math.sqrt(n))
+    for i in range(2,m+1):
+        if sieve[i]== True:
+            for j in range(i+i,n,i):
+                sieve[j]=False
+    return [i for i in range(2,n) if sieve[i]==True] #def쓰는게 런타임 훨씬 줄임
+
+a= int(sys.stdin.readline())
+b=[]
+for i in range(a):
+    f=int(sys.stdin.readline())
+    b.append(f)
+'''sieve=[True]*10000
+for i in range(2,101):
+    if sieve[i]== True:
+        for j in range (2*i,10000,i):
+            sieve[j]=False
+c=[i for i in range(2,10000) if sieve[i]==True]'''
+
+for i in b:
+    d=[j for j in c if int(i/2)<=j<i]
+    for j in d:
+        if i-j in c:
+            print('%d %d'%(i-j,j))
+            break 
+

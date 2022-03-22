@@ -1,12 +1,18 @@
-A,B,V= map(int, input().split())
-#day=1
-'''while True:
-    if V<=(A+(A-B)*(day-1)):
-        print(day)
-        break
+
+def find_prime(n):
+    if n==1:
+        return False
     else:
-        day+=1     '''          #이렇게 하면 숫자 커지면 너무 오래걸림
-if (1+((V-A)/(A-B)))-(1+((V-A)//(A-B)))!=0 :
-    print (2+((V-A)//(A-B)))
-else:
-    print(int(1+((V-A)/(A-B))))            
+        for i in range(2,int(n**0.5)+1):
+            if (n%i)==0:
+                return False  
+    return True
+M,N=map(int,input().split())
+for i in range(M,N+1):
+    if M==N:
+        if find_prime(M)==True:
+            print(M)
+    elif find_prime(i):
+        print(i)    
+    else:
+        pass    
